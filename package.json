@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "create-tables": "echo \"Creating tables\"",
+    "create-tables": "node src/scripts/tables.js",
     "seed-admin": "node src/scripts/seed-admin.js"
   },
   "author": "Okiki",
