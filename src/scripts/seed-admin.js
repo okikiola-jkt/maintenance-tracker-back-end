@@ -13,7 +13,7 @@ const emailExists = async (email) => {
 
 const seedAdmin = async () => {
     const newAdmin = {
-        email: 'testuser@testemail.com',
+        email: 'testuser22@testemail.com',
         password: bcrypt.hashSync('password', 10)
     }
 
