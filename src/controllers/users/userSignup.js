@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const db = require('../src/database/db')
+const db = require('../../database/db')
 
 const emailExists = async (email) => {
     const query = 'SELECT email FROM users WHERE email = $1';
@@ -12,7 +12,7 @@ const registerUser = async (email, password, name) => {
     try {
         if (await emailExists(email)) {
        
-            throw new Error('Email already registered');
+            throw new Error('Email exist');
         } else {
             const hashedPassword = bcrypt.hashSync(password, 10);
             const query = 'INSERT INTO users (email, password, name) VALUES ($1, $2, $3)';
@@ -28,8 +28,8 @@ const registerUser = async (email, password, name) => {
 
 
 const newUser = {
-    email: 'newuser@example.com',
-    password: 'newpassword',
+    email: 'okiki@gmail.com',
+    password: 'okiki',
     name: 'new user',
 };
 

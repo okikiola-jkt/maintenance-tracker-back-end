@@ -9,7 +9,8 @@
     "start": "node src/server.js",
     "create-tables": "node src/scripts/tables.js",
     "seed-admin": "node src/scripts/seed-admin.js",
-    "user-signup": "node src/userSignup.js"
+    "user-signup": "node src/controllers/users/userSignup.js",
+    "user-login": "node src/controllers/users/userSignin.js"
   },
   "author": "Okiki",
   "license": "ISC",
