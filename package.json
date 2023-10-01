@@ -8,7 +8,8 @@
     "devStart": "nodemon src/server.js",
     "start": "node src/server.js",
     "create-tables": "node src/scripts/tables.js",
-    "seed-admin": "node src/scripts/seed-admin.js"
+    "seed-admin": "node src/scripts/seed-admin.js",
+    "user-signup": "node src/userSignup.js"
   },
   "author": "Okiki",
   "license": "ISC",
@@ -16,7 +17,10 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.2",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
     "pg": "^8.11.3"
   },
   "devDependencies": {
