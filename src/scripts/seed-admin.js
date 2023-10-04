@@ -13,8 +13,8 @@ const emailExists = async (email) => {
 
 const seedAdmin = async () => {
     const newAdmin = {
-        email: 'testuser22@testemail.com',
-        password: bcrypt.hashSync('password', 10)
+        email: 'firefire@gmail.com',
+        password: bcrypt.hashSync('password21', 10)
     }
 
     if (await emailExists(newAdmin.email)) {
