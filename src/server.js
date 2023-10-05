@@ -12,17 +12,6 @@ app.use(
   })
 );
 
-const posts = [
-    {
-        username: 'Kyle',
-        password: 'Post 1'
-    },
-
-    {
-        username: 'David',
-        password: 'David2'
-    }
-]
 
 app.use(routes);
 
