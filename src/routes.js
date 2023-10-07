@@ -5,10 +5,12 @@ const registerUser = require('./controllers/users/userSignup');
 const loginUser = require('./controllers/users/userSignin')
 const loginAdmin = require('./controllers/admin/adminSignIn')
 
+
 // middleware import
 const userSignupMiddleware = require('./middleware/users/userSignupMiddleware');
 const adminSigninMiddleware = require('./middleware/admin/adminSigninMiddleware');
 const userSigninMiddleware = require('./middleware/users/userSigninMiddleware');
+const apiAuth = require('./middleware/api/auth')
 
 const app = Router();
 
