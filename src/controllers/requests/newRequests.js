@@ -28,8 +28,8 @@ const addNewRequest = async (request, response) => {
     } catch (error) {
         return response.status(500).json({
             status: "Failed",
-            message: "Internal Server Error",
-            error: error.message
+            message: error.message
+          
         });
 }
 
