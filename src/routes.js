@@ -6,6 +6,7 @@ const loginUser = require('./controllers/users/userSignin')
 const loginAdmin = require('./controllers/admin/adminSignIn')
 const addNewRequest = require('./controllers/requests/newRequests')
 const editRequest = require('./controllers/requests/editRequests')
+const getAllRequestByUser = require('./controllers/requests/allUserRequest')
 
 
 // middleware import
@@ -30,5 +31,6 @@ app.post(
 );
 
 app.put('/request/:id', apiAuth, newRequestsMiddleware,  editRequest);
+app.get('/request', apiAuth, getAllRequestByUser)
 
 module.exports = app;
