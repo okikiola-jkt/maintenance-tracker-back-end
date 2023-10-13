@@ -27,7 +27,7 @@ const addNewRequest = async (request, response) => {
 
     } catch (error) {
         return response.status(500).json({
-            status: "Failed",
+            status: "error",
             message: error.message
           
         });

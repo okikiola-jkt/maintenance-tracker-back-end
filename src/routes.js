@@ -14,6 +14,7 @@ const adminSigninMiddleware = require('./middleware/admin/adminSigninMiddleware'
 const userSigninMiddleware = require('./middleware/users/userSigninMiddleware');
 const apiAuth = require('./middleware/api/auth')
 const newRequestsMiddleware = require('./middleware/requests/newRequestsMiddleware');
+const editNewRequestsMiddleware = require('./middleware/requests/editRequestMiddleware')
 
 const app = Router();
 
@@ -30,6 +31,6 @@ app.post(
     addNewRequest
 );
 
-app.put('/request/:id', apiAuth, editRequest);
+app.put('/request/:id', apiAuth, editNewRequestsMiddleware,  editRequest);
 
 module.exports = app;

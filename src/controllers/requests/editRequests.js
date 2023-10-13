@@ -1,16 +1,18 @@
 const db = require('../../database/db');
 require('dotenv').config();
 
-const getRequestsById = async (id) => {
-    const query = 'SELECT * from requests WHERE id = $1';
-    const response = await db.query(query, [id]);
+const getRequestsById = async (id, userid) => {
+    const query = 'SELECT * FROM requests WHERE id = $1 AND userid = $2';
+    const response = await db.query(query, [id, userid]);
     return response.rows[0];
 };
 
 const editRequest = async (request, response) => {
     try{
-        const {details, id} = request.body;
-        const existingRequest = await getRequestsById(id);
+
+        const {id} = request.params;
+        const {details} = request.body;
+        const existingRequest = await getRequestsById(id, request.user.id);
         if (!existingRequest){
             return response.status(401).json({
                 status: "error",
@@ -18,24 +20,17 @@ const editRequest = async (request, response) => {
             })
         }
 
-        if (existingRequest.userid !== request.user.id) {
-            return response.status(403).json({
-                status: "error",
-                message: "Permission denied: You can only edit your own requests"
-            });
-        }
-
         const updateQuery = 'UPDATE requests SET details = $1 WHERE id = $2';
         await db.query(updateQuery, [details, id]);
 
 
-        return response .status(201).json({
+        return response .status(200).json({
             status: "Success",
             message: "Succesfully edited request"
         })
     } catch (error) {
         return response.status(500).json({
-            status: "Failed",
+            status: "error",
             message: error.message
         });
     }
