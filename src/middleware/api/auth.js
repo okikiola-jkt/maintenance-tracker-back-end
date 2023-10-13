@@ -9,7 +9,7 @@ const getUserById = async (id) => {
 }
 const apiAuth = async (request, response, next) => {
     try{
-        const token = request.headers.authorization.split(' ')[1];
+        const token = request.headers.authorization;
 
         if (!token) {
             return response.status(401).json({
