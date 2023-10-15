@@ -1,4 +1,3 @@
-
 const db = require('../../database/db');
 require('dotenv').config();
 
@@ -9,12 +8,7 @@ const getAllRequestByUser = async (request, response) => {
         const getQuery = 'SELECT * FROM requests WHERE userid = $1';
         const userRequests = await db.query(getQuery, [request.user.id]);
 
-        if (userRequests.rows.length === 0){
-            return response.status(404).json({
-                status: "error",
-                message: "No requests found for this user"
-            });
-        }
+       
 
         return response.status(200).json({
             status: "success",
