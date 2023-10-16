@@ -6,7 +6,8 @@ const loginUser = require('./controllers/users/userSignin')
 const loginAdmin = require('./controllers/admin/adminSignIn')
 const addNewRequest = require('./controllers/requests/newRequests')
 const editRequest = require('./controllers/requests/editRequests')
-const getAllRequestByUser = require('./controllers/requests/allUserRequest')
+const getAllRequestByUser = require('./controllers/requests/allUserRequest');
+const getSingleRequestByUser = require('./controllers/requests/singleUserRequest')
 
 
 // middleware import
@@ -32,5 +33,6 @@ app.post(
 
 app.put('/request/:id', apiAuth, newRequestsMiddleware,  editRequest);
 app.get('/request', apiAuth, getAllRequestByUser)
+app.get('/request/:id',apiAuth, getSingleRequestByUser)
 
 module.exports = app;
