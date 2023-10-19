@@ -39,6 +39,7 @@ app.put('/request/:id', apiAuth, newRequestsMiddleware,  editRequest);
 app.get('/request', apiAuth, getAllRequestByUser);
 app.get('/request/:id',apiAuth, getSingleRequestByUser);
 app.delete('/request/:id', apiAuth, deleteUserRequest);
+
 app.get('/admin/request',adminApiAuth, getAllRequests);
 
 
