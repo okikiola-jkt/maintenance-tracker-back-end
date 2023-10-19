@@ -16,6 +16,7 @@ const userSignupMiddleware = require('./middleware/users/userSignupMiddleware');
 const adminSigninMiddleware = require('./middleware/admin/adminSigninMiddleware');
 const userSigninMiddleware = require('./middleware/users/userSigninMiddleware');
 const apiAuth = require('./middleware/api/auth')
+const adminApiAuth = require('./middleware/api/adminAuth')
 const newRequestsMiddleware = require('./middleware/requests/newRequestsMiddleware');
 const app = Router();
 
