@@ -46,4 +46,4 @@ const adminApiAuth = async (request, response, next) => {
     }
 };
 
-module.export = adminApiAuth
+module.exports = adminApiAuth
