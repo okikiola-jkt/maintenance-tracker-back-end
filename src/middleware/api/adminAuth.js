@@ -3,7 +3,7 @@ const db = require('../../database/db');
 require('dotenv').config();
 
 const getAdminById = async (id) => {
-    const query = 'SLECT * FROM admin WHERE id = $1'
+    const query = 'SELECT * FROM admin WHERE id = $1'
     const response = await db.query(query, [id])
     return response.rows[0];
 }
@@ -19,7 +19,7 @@ const adminApiAuth = async (request, response, next) => {
             });
         }
 
-        const decodedToken = jwt.verify(token, process.env.SECREKEY)
+        const decodedToken = jwt.verify(token, process.env.SECRETKEY)
         if (!decodedToken.id){
             return response.status(401).json({
                 status: 'error',
