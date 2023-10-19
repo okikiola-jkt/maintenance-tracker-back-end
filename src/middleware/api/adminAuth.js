@@ -27,7 +27,7 @@ const adminApiAuth = async (request, response, next) => {
             })
         }
 
-        const id = decodedToken.id;
+        const {id} = decodedToken;
         const admin = await getAdminById(id);
         if (!admin) {
             return response.status(401).json({
