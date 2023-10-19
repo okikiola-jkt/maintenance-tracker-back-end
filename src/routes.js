@@ -9,6 +9,8 @@ const editRequest = require('./controllers/requests/editRequests')
 const getAllRequestByUser = require('./controllers/requests/allUserRequest');
 const getSingleRequestByUser = require('./controllers/requests/singleUserRequest');
 const deleteUserRequest = require('./controllers/requests/deleteRequest');
+const getAllRequests = require('./controllers/admin/getAllRequests');
+
 
 
 // middleware import
@@ -34,8 +36,10 @@ app.post(
 );
 
 app.put('/request/:id', apiAuth, newRequestsMiddleware,  editRequest);
-app.get('/request', apiAuth, getAllRequestByUser)
-app.get('/request/:id',apiAuth, getSingleRequestByUser)
-app.delete('/request/:id', apiAuth, deleteUserRequest)
+app.get('/request', apiAuth, getAllRequestByUser);
+app.get('/request/:id',apiAuth, getSingleRequestByUser);
+app.delete('/request/:id', apiAuth, deleteUserRequest);
+app.get('/admin/request',adminApiAuth, getAllRequests);
+
 
 module.exports = app;
