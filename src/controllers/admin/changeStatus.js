@@ -1,6 +1,6 @@
 const db = require('../../database/db');
 
-const getRequestsById = async (id, userid) => {
+const getRequestsById = async (id) => {
     const query = 'SELECT * FROM requests WHERE id = $1';
     const response = await db.query(query, [id]);
     return response.rows[0];
