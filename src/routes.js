@@ -16,6 +16,7 @@ const changeStatus = require('./controllers/admin/changeStatus');
 
 
 
+
 // middleware import
 const userSignupMiddleware = require('./middleware/users/userSignupMiddleware');
 const adminSigninMiddleware = require('./middleware/admin/adminSigninMiddleware');
@@ -23,6 +24,7 @@ const userSigninMiddleware = require('./middleware/users/userSigninMiddleware');
 const apiAuth = require('./middleware/api/auth')
 const adminApiAuth = require('./middleware/api/adminAuth')
 const newRequestsMiddleware = require('./middleware/requests/newRequestsMiddleware');
+const ChangeStatusMiddleware = require('./middleware/admin/checkStatus');
 const app = Router();
 
 app.post('/user/signup', userSignupMiddleware, registerUser);
@@ -46,7 +48,7 @@ app.delete('/request/:id', apiAuth, deleteUserRequest);
 app.get('/admin/request',adminApiAuth, getAllRequests);
 app.get('/admin/request/:id', adminApiAuth, getSingleRequest);
 app.get('/admin/users', adminApiAuth, getAllUsers);
-app.put('/admin/request/:id',adminApiAuth, changeStatus);
+app.put('/admin/request/:id', adminApiAuth, ChangeStatusMiddleware, changeStatus);
 
 
 module.exports = app;
