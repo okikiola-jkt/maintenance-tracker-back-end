@@ -11,7 +11,8 @@ const getSingleRequestByUser = require('./controllers/requests/singleUserRequest
 const deleteUserRequest = require('./controllers/requests/deleteRequest');
 const getAllRequests = require('./controllers/admin/getAllRequests');
 const getSingleRequest = require('./controllers/admin/getSingleRequest');
-const getAllUsers = require('./controllers/admin/getAllUsers')
+const getAllUsers = require('./controllers/admin/getAllUsers');
+const changeStatus = require('./controllers/admin/changeStatus');
 
 
 
@@ -44,7 +45,8 @@ app.delete('/request/:id', apiAuth, deleteUserRequest);
 
 app.get('/admin/request',adminApiAuth, getAllRequests);
 app.get('/admin/request/:id', adminApiAuth, getSingleRequest);
-app.get('/admin/users', adminApiAuth, getAllUsers)
+app.get('/admin/users', adminApiAuth, getAllUsers);
+app.put('/admin/request/:id',adminApiAuth, changeStatus);
 
 
 module.exports = app;
