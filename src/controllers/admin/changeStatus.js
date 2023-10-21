@@ -8,7 +8,7 @@ const getRequestsById = async (id, userid) => {
 
 
 const changeStatus = async (request, response) => {
-
+    try{
     const {status} = request.body;
     const {id} = request.params;
     const existingRequest = await getRequestsById(id);
@@ -19,7 +19,7 @@ const changeStatus = async (request, response) => {
         });
     }
 
-    try{
+  
         const query = 'UPDATE requests SET status = $1 WHERE id =$2';
         await db.query(query, [status, id]);
         
