@@ -9,15 +9,15 @@ const getRequestsById = async (id, userid) => {
 
 const changeStatus = async (request, response) => {
     try{
-    const {status} = request.body;
-    const {id} = request.params;
-    const existingRequest = await getRequestsById(id);
-    if (!existingRequest) {
-        return response.status(404).json({
-            status: 'error',
-            message: 'Request not found'
-        });
-    }
+        const {status} = request.body;
+        const {id} = request.params;
+        const existingRequest = await getRequestsById(id);
+        if (!existingRequest) {
+            return response.status(404).json({
+                status: 'error',
+                message: 'Request not found'
+            });
+        }
 
   
         const query = 'UPDATE requests SET status = $1 WHERE id =$2';
