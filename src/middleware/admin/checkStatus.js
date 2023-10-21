@@ -6,7 +6,7 @@ const checkStatus = Joi.object().keys({
   
 });
 
-const ChangeStatusMiddleware = (request, response, next) => {
+const changeStatusMiddleware = (request, response, next) => {
     const validated = checkStatus.validate(request.body);
 
     if (validated.error){
@@ -20,4 +20,4 @@ const ChangeStatusMiddleware = (request, response, next) => {
     next();
 }
 
-module.exports = ChangeStatusMiddleware;
+module.exports = changeStatusMiddleware;
