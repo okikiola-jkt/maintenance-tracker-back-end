@@ -11,8 +11,7 @@ const userSigninMiddleware = (request, response, next) => {
     if (validated.error){
         return response.status(400).json({
             status: 'error',
-            messgae: 'A validation error occured',
-            error: validated.error.details[0].message
+            message: validated.error.details[0].message
         })
     }
 
