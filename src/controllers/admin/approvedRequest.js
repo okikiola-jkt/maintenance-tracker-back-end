@@ -4,8 +4,9 @@ require('dotenv').config();
 const getApprovedRequestByUser = async (request, response) => {
    try{ 
     
-    const getQuery = "SELECT * FROM requests WHERE status = 'completed'";
-    const approvedRequests = await db.query(getQuery)
+    const {status} = request.params;
+    const getQuery = "SELECT * FROM requests WHERE status = $1";
+    const approvedRequests = await db.query(getQuery, [status])
 
     return response.status(200).json({
         status: 'success',
