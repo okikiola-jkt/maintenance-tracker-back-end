@@ -25,6 +25,7 @@ const apiAuth = require('./middleware/api/auth')
 const adminApiAuth = require('./middleware/api/adminAuth')
 const newRequestsMiddleware = require('./middleware/requests/newRequestsMiddleware');
 const changeStatusMiddleware = require('./middleware/admin/checkStatus');
+const getApprovedRequestByUser = require('./controllers/admin/approvedRequest');
 const app = Router();
 
 app.post('/user/signup', userSignupMiddleware, registerUser);
@@ -46,6 +47,7 @@ app.get('/request/:id',apiAuth, getSingleRequestByUser);
 app.delete('/request/:id', apiAuth, deleteUserRequest);
 
 app.get('/admin/request',adminApiAuth, getAllRequests);
+app.get('/admin/request/completed', adminApiAuth, getApprovedRequestByUser);
 app.get('/admin/request/:id', adminApiAuth, getSingleRequest);
 app.get('/admin/users', adminApiAuth, getAllUsers);
 app.put('/admin/request/:id', adminApiAuth, changeStatusMiddleware, changeStatus);
