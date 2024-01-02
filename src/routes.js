@@ -46,8 +46,8 @@ app.get('/request', apiAuth, getAllRequestByUser);
 app.get('/request/:id',apiAuth, getSingleRequestByUser);
 app.delete('/request/:id', apiAuth, deleteUserRequest);
 
-app.get('/admin/request',adminApiAuth, getAllRequests);
-app.get('/admin/request/:status', adminApiAuth, getApprovedRequestByUser);
+app.get('/admin/request', adminApiAuth, getAllRequests);
+app.get('/admin/request/:status', adminApiAuth, getAllRequests);
 app.get('/admin/request/:id', adminApiAuth, getSingleRequest);
 app.get('/admin/users', adminApiAuth, getAllUsers);
 app.put('/admin/request/:id', adminApiAuth, changeStatusMiddleware, changeStatus);
