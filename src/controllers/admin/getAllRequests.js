@@ -1,9 +1,9 @@
 const db = require('../../database/db');
-require('dotenv').config();
+
 
 const getAllRequests = async (request, response) => {
     try {
-        const { status } = request.params;
+        const { status } = request.query;
         let getQuery;
 
         if (status) {
